@@ -14,7 +14,7 @@ steps:
 
   - task: AzureWebApp@1
     inputs:
-      azureSubscription: 'JBedar'  # Replace with the correct service connection name
+      azureSubscription: 'jeremiahbedar'  # Replace with the correct service connection name
       appType: 'webAppLinux'
       appName: 'JBedar'
       package: '.'
