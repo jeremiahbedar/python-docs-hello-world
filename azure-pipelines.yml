@@ -1,40 +1,20 @@
 trigger:
-
-     - main
-
-
+  - main
 
 pool:
-
-      vmImage: 'ubuntu-latest'
-
-
+  vmImage: 'ubuntu-latest'
 
 steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.x'
 
-     - task: UsePythonVersion@0
+  - script: pip install -r requirements.txt
+    displayName: 'Install dependencies'
 
-        inputs:
-
-             versionSpec: '3.x'
-
-
-
-     - script: pip install -r requirements.txt
-
-   displayName: 'Install dependencies'
-
-
-
- - task: AzureWebApp@1
-
-   inputs:
-
-         azureSubscription: '<your-service-connection>'
-
-         appType: 'webAppLinux'
-
-         appName: '<your-unique-app-name>'
-
-         package: '.'
-
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'JBedar'  # Replace with the correct service connection name
+      appType: 'webAppLinux'
+      appName: 'JBedar'
+      package: '.'
